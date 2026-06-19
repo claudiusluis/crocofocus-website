@@ -202,11 +202,84 @@ Placeholder content until real content is ready:
 ## Build Steps — Status
 
 - [x] Schritt 1: Folder structure, GitHub repo, CLAUDE.md, copy assets, update Swift URL
-- [ ] Schritt 2: Base HTML skeleton for all 3 pages (shared nav + footer pattern)
-- [ ] Schritt 3: Tailwind + AOS + Nunito wired up, Tailwind config, CSS variables
-- [ ] Schritt 4: Hero section (headline, subline, CTA button, Croco, iPhone placeholder)
-- [ ] Schritt 5: Feature sections with AOS scroll animations
-- [ ] Schritt 6: "How It Works" + second CTA + Footer
-- [ ] Schritt 7: Privacy Policy page — full DSGVO-compliant text
-- [ ] Schritt 8: Support page — FAQ placeholder + contact email
-- [ ] Schritt 9: GitHub Pages deploy + CNAME prep for custom domain
+- [x] Schritt 2: Base HTML skeleton for all 3 pages (shared nav + footer pattern)
+- [x] Schritt 3: Tailwind + AOS + Nunito wired up, Tailwind config (merged into Step 2)
+- [x] Schritt 4: Hero section — headline, subline, Croco float animation, App Store CTA
+- [x] Schritt 5: Problem quote + Feature bento grid (Bedtime, Streak, Bypass, Premium)
+- [x] Schritt 6: How It Works (scroll-driven line + step reveal) + green gradient CTA card
+- [x] Schritt 7: Privacy Policy — GDPR/DSGVO-compliant, 10 sections
+- [x] Schritt 8: Support page — FAQ accordion (6 Qs) + contact card
+- [x] Schritt 9: GitHub Pages live, all assets verified
+
+---
+
+## Live Site
+
+**URL:** https://claudiusluis.github.io/crocofocus-website/
+
+All three pages verified live (HTTP 200, HTTPS enforced):
+- `/` — Landing page
+- `/privacy/` — Privacy Policy (linked in iOS app InfoView.swift)
+- `/support/` — Support + FAQ
+
+---
+
+## What's Still TODO (future sessions)
+
+### High priority — before App Store launch
+- [ ] Add real App Store link to all `href="#"` download buttons (3 places: nav, hero, CTA)
+- [ ] Replace `Luis Aufderhorst` + add postal address in Privacy Policy (DSGVO data controller)
+- [ ] Replace placeholder email `support@crocofocus.app` with real address (privacy + support)
+- [ ] Add App Icon once finalized (update `<link rel="icon">` in all 3 pages)
+
+### Medium priority — polish
+- [ ] Add iPhone mockup with app screenshots (use Shots.so or Previewed.app) in Features section
+- [ ] Replace placeholder FAQ answers with real content once app is live
+- [ ] Add `og:image` meta tag (Open Graph) for social sharing preview
+- [ ] Test on mobile Safari (key audience: iOS users)
+
+### Custom domain migration — when ready
+See section below.
+
+---
+
+## Custom Domain Migration (when you buy crocofocus.app)
+
+**One-time setup — no HTML changes needed.**
+
+### Step 1: Buy the domain
+Recommended registrar: Namecheap (~$15/year for .app domains).
+Check availability: `crocofocus.app`
+
+### Step 2: Add DNS records at your registrar
+Add these four A records pointing to GitHub Pages:
+```
+A  @  185.199.108.153
+A  @  185.199.109.153
+A  @  185.199.110.153
+A  @  185.199.111.153
+```
+Also add a CNAME record for www:
+```
+CNAME  www  claudiusluis.github.io
+```
+
+### Step 3: Create the CNAME file in this repo
+Create a file called `CNAME` (no extension) in the root of the repo containing only:
+```
+crocofocus.app
+```
+Then commit and push it.
+
+### Step 4: Configure in GitHub
+Go to: github.com/claudiusluis/crocofocus-website → Settings → Pages
+Set "Custom domain" to `crocofocus.app` and enable "Enforce HTTPS".
+
+### Step 5: Wait for DNS propagation
+DNS changes take 10 minutes to 48 hours. The site will then be live at:
+- https://crocofocus.app/
+- https://crocofocus.app/privacy/
+- https://crocofocus.app/support/
+
+The iOS app Swift URL already points to `/privacy/` — the path stays the same,
+only the domain changes. **No code changes needed in the app.**
