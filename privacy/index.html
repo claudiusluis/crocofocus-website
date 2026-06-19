@@ -42,10 +42,13 @@
   <style>
     html  { scroll-behavior: smooth; }
     body  { font-family: 'Nunito', sans-serif; background-color: #FAFAF8; color: #1C1C1E; }
-    .prose h2 { font-size: 1.4rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem; color: #1C1C1E; }
-    .prose p, .prose li { color: #374151; line-height: 1.8; margin-bottom: 0.75rem; }
-    .prose ul { list-style: disc; padding-left: 1.5rem; margin-bottom: 1rem; }
-    .prose a { color: #58CC02; text-decoration: underline; }
+    .prose h2 { font-size: 1.25rem; font-weight: 800; margin-top: 2.75rem; margin-bottom: 0.6rem; color: #1C1C1E; }
+    .prose p  { color: #374151; line-height: 1.85; margin-bottom: 1rem; }
+    .prose li { color: #374151; line-height: 1.85; margin-bottom: 0.4rem; }
+    .prose ul { list-style: disc; padding-left: 1.5rem; margin-bottom: 1.25rem; }
+    .prose a  { color: #58CC02; text-decoration: underline; }
+    .prose hr { border: none; border-top: 1px solid #E5E7EB; margin: 2.5rem 0; }
+    .prose .callout { background: #F0FDF4; border-left: 3px solid #58CC02; padding: 1rem 1.25rem; border-radius: 0 0.75rem 0.75rem 0; margin-bottom: 1.5rem; }
   </style>
 </head>
 
@@ -83,10 +86,161 @@
         <p class="text-gray-500 font-semibold">Last updated: June 2026</p>
       </div>
 
-      <!-- Content — Step 7 -->
+      <!-- Privacy Policy Content -->
       <div class="prose" data-aos="fade-up" data-aos-delay="100">
-        <!-- Privacy policy content will be added in Step 7 -->
-        <p class="text-gray-400 italic">Privacy policy content coming soon.</p>
+
+        <div class="callout">
+          <p class="!mb-0 font-bold text-croco-dark">
+            The short version: CrocoFocus does not collect, transmit, or store any personal data on external servers. Everything stays on your device.
+          </p>
+        </div>
+
+        <h2>1. Who We Are</h2>
+        <p>
+          CrocoFocus is an iOS application developed and operated by Luis Aufderhorst
+          ("we", "us", "our"). This Privacy Policy describes how CrocoFocus handles
+          information when you use our app and visit this website.
+        </p>
+        <p>
+          <strong>Data Controller:</strong> Luis Aufderhorst —
+          <a href="mailto:support@crocofocus.app">support@crocofocus.app</a>
+        </p>
+
+        <hr>
+
+        <h2>2. Data Processed by CrocoFocus — And Where It Stays</h2>
+        <p>
+          CrocoFocus operates entirely on your device. We do not run servers that receive
+          data from the app. Here is what the app stores and uses locally:
+        </p>
+
+        <p><strong>App settings</strong></p>
+        <p>
+          Your bedtime schedule, bypass timer preferences, and streak data are stored
+          locally on your device using iOS UserDefaults. This data never leaves your device
+          and is never accessible to us.
+        </p>
+
+        <p><strong>Screen Time authorization</strong></p>
+        <p>
+          CrocoFocus uses Apple's FamilyControls framework to apply Screen Time
+          restrictions. When you first open the app, iOS asks for your permission. The apps
+          you select to block are stored as opaque cryptographic tokens by Apple's framework
+          — we cannot read which specific apps you selected. This is by design: Apple's
+          privacy architecture ensures your app selection remains private even from the
+          developer.
+        </p>
+
+        <p><strong>Local notifications</strong></p>
+        <p>
+          CrocoFocus delivers local notifications on your device (for example, a reminder
+          before your temporary bypass window closes). These are generated entirely on your
+          device. No notification content is sent to any server.
+        </p>
+
+        <hr>
+
+        <h2>3. What We Do Not Collect</h2>
+        <p>We do not collect, store, or transmit:</p>
+        <ul>
+          <li>Your name, email address, or any contact information</li>
+          <li>Your location data</li>
+          <li>Device identifiers or advertising IDs</li>
+          <li>Usage analytics or crash reports</li>
+          <li>Browsing history or app usage patterns</li>
+          <li>Any data for advertising or marketing purposes</li>
+        </ul>
+
+        <hr>
+
+        <h2>4. In-App Purchases</h2>
+        <p>
+          CrocoFocus offers optional in-app purchases (Premium). All payment processing is
+          handled exclusively by Apple's App Store via StoreKit. We never receive, see, or
+          store your payment information. Apple's privacy policy governs purchase
+          transactions:
+          <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">apple.com/legal/privacy</a>
+        </p>
+
+        <hr>
+
+        <h2>5. Third-Party Services</h2>
+        <p>
+          CrocoFocus does not integrate any third-party analytics, advertising, or tracking
+          SDKs. The only third party involved is Apple Inc., whose system frameworks power
+          core functionality:
+        </p>
+        <ul>
+          <li><strong>FamilyControls / ManagedSettings</strong> — Screen Time management (on-device)</li>
+          <li><strong>StoreKit</strong> — In-app purchase processing (handled by Apple)</li>
+          <li><strong>UserNotifications</strong> — Local notification delivery (on-device)</li>
+        </ul>
+        <p>
+          Apple's data practices are governed by
+          <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple's Privacy Policy</a>.
+        </p>
+
+        <hr>
+
+        <h2>6. Data Security</h2>
+        <p>
+          Because CrocoFocus does not transmit personal data off your device, the security
+          of your data is governed by your device's own security mechanisms — including
+          passcode protection, Face ID / Touch ID, and iOS file encryption. We encourage you
+          to keep your device and iOS version up to date.
+        </p>
+
+        <hr>
+
+        <h2>7. Children's Privacy</h2>
+        <p>
+          CrocoFocus does not knowingly collect personal information from anyone, including
+          children under the age of 13. As no personal data is collected or transmitted,
+          there is no personal information to manage or delete.
+        </p>
+
+        <hr>
+
+        <h2>8. Your Rights Under GDPR</h2>
+        <p>
+          If you are located in the European Economic Area (EEA), you have rights regarding
+          your personal data under the General Data Protection Regulation (GDPR). Because
+          CrocoFocus does not collect or process personal data on external servers, these
+          rights are satisfied by design. Nonetheless, you may contact us at any time to:
+        </p>
+        <ul>
+          <li>Request access to any data we hold about you</li>
+          <li>Request correction or deletion of your data</li>
+          <li>Object to or restrict processing of your data</li>
+          <li>Request data portability</li>
+          <li>Lodge a complaint with your national supervisory authority</li>
+        </ul>
+        <p>
+          To exercise any of these rights, contact us at
+          <a href="mailto:support@crocofocus.app">support@crocofocus.app</a>.
+        </p>
+
+        <hr>
+
+        <h2>9. Changes to This Policy</h2>
+        <p>
+          We may update this Privacy Policy from time to time as the app evolves. Changes
+          will be posted on this page with a revised "Last updated" date. We encourage you
+          to review this page periodically. Continued use of the app after changes are
+          posted constitutes your acceptance of the updated policy.
+        </p>
+
+        <hr>
+
+        <h2>10. Contact</h2>
+        <p>
+          If you have any questions or concerns about this Privacy Policy, please reach out:
+        </p>
+        <p>
+          <strong>Email:</strong>
+          <a href="mailto:support@crocofocus.app">support@crocofocus.app</a>
+        </p>
+
       </div>
 
     </div>
