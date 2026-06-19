@@ -48,6 +48,22 @@
       50%       { transform: translateY(-12px) rotate(1.5deg); }
     }
     .croco-float { animation: float 5s ease-in-out infinite; }
+
+    /* How It Works — steps hidden until line reaches them */
+    .step-item {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .step-item.step-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    /* On mobile there is no line — show all steps normally */
+    @media (max-width: 767px) {
+      .step-item { opacity: 1; transform: none; transition: none; }
+    }
   </style>
 </head>
 
@@ -256,7 +272,7 @@
           <div class="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-8">
 
             <!-- Step 1 -->
-            <div class="flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="0">
+            <div class="step-item flex flex-col items-center text-center">
               <div class="relative z-10 w-12 h-12 rounded-full bg-croco flex items-center justify-center text-white font-extrabold text-lg mb-7 shadow-md ring-4 ring-white">
                 1
               </div>
@@ -268,7 +284,7 @@
             </div>
 
             <!-- Step 2 -->
-            <div class="flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="180">
+            <div class="step-item flex flex-col items-center text-center">
               <div class="relative z-10 w-12 h-12 rounded-full bg-croco flex items-center justify-center text-white font-extrabold text-lg mb-7 shadow-md ring-4 ring-white">
                 2
               </div>
@@ -280,7 +296,7 @@
             </div>
 
             <!-- Step 3 -->
-            <div class="flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="360">
+            <div class="step-item flex flex-col items-center text-center">
               <div class="relative z-10 w-12 h-12 rounded-full bg-croco flex items-center justify-center text-white font-extrabold text-lg mb-7 shadow-md ring-4 ring-white">
                 3
               </div>
@@ -368,22 +384,34 @@
   <script>
     AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true });
 
-    // How It Works — scroll-driven line animation
+    // How It Works — scroll-driven line + step reveal
     (function () {
       const section = document.getElementById('how-it-works');
       const line    = document.getElementById('how-line');
       if (!section || !line) return;
 
+      const steps = section.querySelectorAll('.step-item');
+      // Thresholds: what line progress (0–1) reveals each step.
+      // Step 1 appears as soon as we start scrolling into the section.
+      // Step 2 appears when the line is ~halfway (just before circle 2).
+      // Step 3 appears when the line is nearly complete (just before circle 3).
+      const thresholds = [0.02, 0.46, 0.90];
+
       let ticking = false;
       function update() {
         const rect  = section.getBoundingClientRect();
         const winH  = window.innerHeight;
-        // Start filling when section top hits 80% of viewport height,
-        // finish when section top hits 10% — feels natural while scrolling.
         const start = winH * 0.80;
         const end   = winH * 0.10;
         const progress = Math.min(1, Math.max(0, (start - rect.top) / (start - end)));
+
         line.style.width = (progress * 100) + '%';
+
+        // Reveal each step when the line reaches its threshold
+        thresholds.forEach(function (t, i) {
+          if (progress >= t) steps[i]?.classList.add('step-visible');
+        });
+
         ticking = false;
       }
 
@@ -391,7 +419,7 @@
         if (!ticking) { requestAnimationFrame(update); ticking = true; }
       }, { passive: true });
 
-      update(); // run once on load in case section is already visible
+      update();
     }());
 
     // Navbar becomes solid + blurred on scroll
