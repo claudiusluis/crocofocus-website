@@ -42,6 +42,12 @@
   <style>
     html  { scroll-behavior: smooth; }
     body  { font-family: 'Nunito', sans-serif; background-color: #FAFAF8; color: #1C1C1E; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50%       { transform: translateY(-12px) rotate(1.5deg); }
+    }
+    .croco-float { animation: float 5s ease-in-out infinite; }
   </style>
 </head>
 
@@ -71,10 +77,61 @@
 
   <main>
 
-    <!-- HERO — Step 4 -->
-    <section id="hero">
-      <!-- Filled in Step 4 -->
+    <!-- ===================== HERO ===================== -->
+    <section id="hero" class="relative min-h-screen flex flex-col items-center justify-center text-center px-6 pt-28 pb-16 overflow-hidden">
+
+      <!-- Soft green glow behind Croco -->
+      <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-[450px] rounded-full bg-croco/5 blur-3xl"></div>
+      </div>
+
+      <!-- Eyebrow badge -->
+      <div data-aos="fade-down" data-aos-duration="600">
+        <span class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.15em] text-croco bg-croco/10 px-4 py-2 rounded-full">
+          <span class="w-1.5 h-1.5 rounded-full bg-croco animate-pulse"></span>
+          Coming to the App Store
+        </span>
+      </div>
+
+      <!-- Headline -->
+      <h1 class="relative mt-8 font-extrabold tracking-tight leading-[1.05] text-5xl md:text-7xl lg:text-8xl"
+          data-aos="fade-up" data-aos-delay="100">
+        Lock the apps.<br>
+        <span class="text-croco">Unlock the morning.</span>
+      </h1>
+
+      <!-- Subline -->
+      <p class="relative mt-6 font-semibold text-gray-500 max-w-md leading-relaxed text-lg md:text-xl"
+         data-aos="fade-up" data-aos-delay="200">
+        Set your bedtime once. Croco handles the rest.<br>Every single night.
+      </p>
+
+      <!-- App Store button -->
+      <div class="relative mt-10" data-aos="fade-up" data-aos-delay="300">
+        <a href="#"
+           class="inline-flex items-center gap-3.5 bg-[#1C1C1E] hover:bg-gray-800 text-white px-7 py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-200 active:scale-95 select-none">
+          <svg class="w-7 h-7 flex-shrink-0" viewBox="0 0 814 1000" fill="currentColor" aria-hidden="true">
+            <path d="M788.1 340.9c-5.8 4.5-108.2 62.2-108.2 190.5 0 148.4 130.3 200.9 134.2 202.2-.6 3.2-20.7 71.9-68.7 141.9-42.8 61.6-87.5 123.1-155.5 123.1s-85.5-39.5-164-39.5c-76 0-103.7 40.8-165.9 40.8s-105-36.8-162.8-108.8C207.1 793.8 160 684.2 160 577.8c0-167.2 107.9-255.5 213.5-255.5 56.4 0 103.4 37.1 138.6 37.1 33.5 0 86.5-39.5 152.1-39.5 24.6 0 108.2 2.6 168.1 105.6zm-154.5-153.2c28.8-34.1 49.4-81.5 49.4-128.9 0-6.5-.6-13-1.9-18.2-47.4 1.9-103.7 31.7-137.8 69.5-26.9 30.4-52 77.8-52 126 0 7.1 1.3 14.2 1.9 16.5 2.6.6 6.5 1.3 10.4 1.3 42.8 0 96.8-28.2 130.0-66.2z"/>
+          </svg>
+          <div class="text-left leading-tight">
+            <div class="text-[11px] font-semibold opacity-70 tracking-wide">Download on the</div>
+            <div class="text-[18px] font-bold">App Store</div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Croco mascot -->
+      <div class="relative mt-14" data-aos="zoom-in" data-aos-delay="450" data-aos-duration="900">
+        <img
+          src="assets/images/croco_splash_logo.svg"
+          alt="Croco, the CrocoFocus mascot"
+          class="croco-float w-56 md:w-72 lg:w-80 mx-auto drop-shadow-2xl select-none"
+          draggable="false"
+        >
+      </div>
+
     </section>
+    <!-- ===================== /HERO ===================== -->
 
     <!-- PROBLEM — Step 5 -->
     <section id="problem">
