@@ -42,6 +42,23 @@
   <style>
     html  { scroll-behavior: smooth; }
     body  { font-family: 'Nunito', sans-serif; background-color: #FAFAF8; color: #1C1C1E; }
+
+    /* FAQ accordion */
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .faq-item.open .faq-answer {
+      max-height: 400px;
+    }
+    .faq-icon {
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      flex-shrink: 0;
+    }
+    .faq-item.open .faq-icon {
+      transform: rotate(45deg);
+    }
   </style>
 </head>
 
@@ -79,19 +96,131 @@
         <p class="text-gray-500 font-semibold">We're here to help. Find answers below or reach out directly.</p>
       </div>
 
-      <!-- FAQ — Step 8 -->
+      <!-- FAQ -->
       <div data-aos="fade-up" data-aos-delay="100">
-        <!-- FAQ content will be added in Step 8 -->
-        <p class="text-gray-400 italic">FAQ content coming soon.</p>
+
+        <h2 class="text-2xl font-extrabold mb-6">Frequently Asked Questions</h2>
+
+        <div class="space-y-3" id="faq-list">
+
+          <!-- Q1 -->
+          <div class="faq-item open bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+            <button class="faq-btn w-full flex items-center justify-between gap-4 px-6 py-5 text-left">
+              <span class="font-bold text-gray-900">How do I select which apps to block?</span>
+              <svg class="faq-icon w-5 h-5 text-croco" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <p class="px-6 pb-5 text-gray-500 font-semibold leading-relaxed">
+                Open CrocoFocus and tap the app selection area on the home screen. iOS will show you Apple's standard app picker where you can choose any installed apps you'd like Croco to guard during your bedtime hours.
+              </p>
+            </div>
+          </div>
+
+          <!-- Q2 -->
+          <div class="faq-item bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+            <button class="faq-btn w-full flex items-center justify-between gap-4 px-6 py-5 text-left">
+              <span class="font-bold text-gray-900">Will the block still work if my phone restarts?</span>
+              <svg class="faq-icon w-5 h-5 text-croco" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <p class="px-6 pb-5 text-gray-500 font-semibold leading-relaxed">
+                Yes. CrocoFocus uses Apple's Screen Time system at the OS level, which persists through restarts and app closures. Your bedtime shield reactivates automatically — no need to keep the app running in the background.
+              </p>
+            </div>
+          </div>
+
+          <!-- Q3 -->
+          <div class="faq-item bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+            <button class="faq-btn w-full flex items-center justify-between gap-4 px-6 py-5 text-left">
+              <span class="font-bold text-gray-900">What is Temporary Bypass and how does it work?</span>
+              <svg class="faq-icon w-5 h-5 text-croco" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <p class="px-6 pb-5 text-gray-500 font-semibold leading-relaxed">
+                If you genuinely need to check a blocked app, you can unlock it temporarily. Tap the shield screen on your device — CrocoFocus will ask how many minutes you need. Once the time is up, Croco automatically restores the block. No excuses, no exceptions.
+              </p>
+            </div>
+          </div>
+
+          <!-- Q4 -->
+          <div class="faq-item bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+            <button class="faq-btn w-full flex items-center justify-between gap-4 px-6 py-5 text-left">
+              <span class="font-bold text-gray-900">Does CrocoFocus drain my battery?</span>
+              <svg class="faq-icon w-5 h-5 text-croco" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <p class="px-6 pb-5 text-gray-500 font-semibold leading-relaxed">
+                No. CrocoFocus hands off the heavy lifting to Apple's built-in Screen Time system, which has no meaningful battery impact. The app itself only runs briefly to apply your settings — then Croco handles the rest at the OS level.
+              </p>
+            </div>
+          </div>
+
+          <!-- Q5 -->
+          <div class="faq-item bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+            <button class="faq-btn w-full flex items-center justify-between gap-4 px-6 py-5 text-left">
+              <span class="font-bold text-gray-900">Why does CrocoFocus need Screen Time permission?</span>
+              <svg class="faq-icon w-5 h-5 text-croco" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <p class="px-6 pb-5 text-gray-500 font-semibold leading-relaxed">
+                CrocoFocus uses Apple's FamilyControls framework, which requires Screen Time authorization to apply app restrictions. This is a standard iOS permission managed entirely by Apple. We never see which specific apps you select to block — your choices stay private, even from us.
+              </p>
+            </div>
+          </div>
+
+          <!-- Q6 -->
+          <div class="faq-item bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+            <button class="faq-btn w-full flex items-center justify-between gap-4 px-6 py-5 text-left">
+              <span class="font-bold text-gray-900">I broke my streak — can I get it back?</span>
+              <svg class="faq-icon w-5 h-5 text-croco" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <p class="px-6 pb-5 text-gray-500 font-semibold leading-relaxed">
+                Streaks cannot be manually restored once broken — and that's intentional. The power of a streak comes from its honesty. Start fresh, and see how far you can go this time. Croco believes in you. 🐊
+              </p>
+            </div>
+          </div>
+
+        </div>
       </div>
 
-      <!-- Contact — Step 8 -->
-      <div class="mt-16 p-8 bg-white rounded-3xl shadow-sm border border-gray-100" data-aos="fade-up" data-aos-delay="200">
-        <h2 class="text-xl font-bold mb-2">Still need help?</h2>
-        <p class="text-gray-500 mb-4">Send us an email and we'll get back to you as soon as possible.</p>
-        <a href="mailto:support@crocofocus.app" class="inline-flex items-center gap-2 bg-croco hover:bg-croco-dark text-white font-bold px-6 py-3 rounded-full transition-colors duration-200">
-          support@crocofocus.app
-        </a>
+      <!-- Contact card -->
+      <div class="relative mt-14 overflow-hidden bg-white rounded-3xl border border-gray-100 shadow-sm p-8"
+           data-aos="fade-up" data-aos-delay="150">
+
+        <!-- Croco peeking from top-right -->
+        <img src="../assets/images/croco_head_left.svg"
+             alt="" aria-hidden="true"
+             class="absolute -top-3 -right-3 w-24 opacity-20 pointer-events-none select-none rotate-12"
+             draggable="false">
+
+        <div class="relative">
+          <h2 class="text-xl font-extrabold mb-2">Still have questions?</h2>
+          <p class="text-gray-500 font-semibold mb-6 max-w-sm">
+            We read every message. Send us an email and we'll get back to you as soon as possible.
+          </p>
+          <a href="mailto:support@crocofocus.app"
+             class="inline-flex items-center gap-2.5 bg-croco hover:bg-croco-dark text-white font-bold px-6 py-3 rounded-full transition-colors duration-200 shadow-sm">
+            <!-- Envelope icon -->
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/>
+            </svg>
+            support@crocofocus.app
+          </a>
+        </div>
+
       </div>
 
     </div>
@@ -122,6 +251,22 @@
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
     AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true });
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+
+        // Close all items
+        document.querySelectorAll('.faq-item').forEach(function (i) {
+          i.classList.remove('open');
+        });
+
+        // Open the clicked one if it was closed
+        if (!isOpen) item.classList.add('open');
+      });
+    });
   </script>
 
 </body>
