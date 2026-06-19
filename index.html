@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CrocoFocus — Sleep Better. Every Night.</title>
+  <meta name="description" content="CrocoFocus blocks distracting apps in the evening so you can fall asleep faster and wake up refreshed.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- AOS (Animate On Scroll) -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            croco: {
+              DEFAULT: '#58CC02',
+              light:   '#8EE820',
+              belly:   '#C8F06A',
+              dark:    '#3A8E00',
+              outline: '#236200',
+            },
+            sleep: '#9B8EC4',
+            canvas: '#FAFAF8',
+          },
+          fontFamily: {
+            sans: ['Nunito', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    html  { scroll-behavior: smooth; }
+    body  { font-family: 'Nunito', sans-serif; background-color: #FAFAF8; color: #1C1C1E; }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===================== NAV ===================== -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+
+      <a href="/" class="flex items-center gap-2.5 group">
+        <img src="assets/images/croco_head_left.svg" alt="Croco mascot" class="w-9 h-9 transition-transform group-hover:rotate-6 duration-300">
+        <span class="text-xl font-extrabold text-croco tracking-tight">CrocoFocus</span>
+      </a>
+
+      <div class="hidden md:flex items-center gap-8">
+        <a href="support/" class="text-sm font-semibold text-gray-500 hover:text-croco transition-colors duration-200">Support</a>
+        <a href="privacy/" class="text-sm font-semibold text-gray-500 hover:text-croco transition-colors duration-200">Privacy</a>
+        <a href="#download" class="text-sm font-bold bg-croco hover:bg-croco-dark text-white px-5 py-2.5 rounded-full transition-colors duration-200 shadow-sm">
+          Download
+        </a>
+      </div>
+
+    </div>
+  </nav>
+  <!-- ===================== /NAV ===================== -->
+
+
+  <main>
+
+    <!-- HERO — Step 4 -->
+    <section id="hero">
+      <!-- Filled in Step 4 -->
+    </section>
+
+    <!-- PROBLEM — Step 5 -->
+    <section id="problem">
+      <!-- Filled in Step 5 -->
+    </section>
+
+    <!-- FEATURES — Step 5 -->
+    <section id="features">
+      <!-- Filled in Step 5 -->
+    </section>
+
+    <!-- HOW IT WORKS — Step 6 -->
+    <section id="how-it-works">
+      <!-- Filled in Step 6 -->
+    </section>
+
+    <!-- DOWNLOAD CTA — Step 6 -->
+    <section id="download">
+      <!-- Filled in Step 6 -->
+    </section>
+
+  </main>
+
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="border-t border-gray-100 bg-white py-12 mt-24">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6 text-sm">
+
+      <a href="/" class="flex items-center gap-2 group">
+        <img src="assets/images/croco_head_left.svg" alt="Croco" class="w-6 h-6 transition-transform group-hover:rotate-6 duration-300">
+        <span class="font-extrabold text-gray-800">CrocoFocus</span>
+      </a>
+
+      <nav class="flex gap-6 font-semibold text-gray-500">
+        <a href="privacy/" class="hover:text-croco transition-colors duration-200">Privacy Policy</a>
+        <a href="support/" class="hover:text-croco transition-colors duration-200">Support</a>
+      </nav>
+
+      <p class="text-gray-400">© 2026 CrocoFocus. All rights reserved.</p>
+
+    </div>
+  </footer>
+  <!-- ===================== /FOOTER ===================== -->
+
+
+  <!-- AOS init -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true });
+
+    // Navbar becomes solid + blurred on scroll
+    const navbar = document.getElementById('navbar');
+    const onScroll = () => {
+      if (window.scrollY > 20) {
+        navbar.classList.add('bg-white/90', 'backdrop-blur-md', 'shadow-sm', 'border-b', 'border-gray-100');
+      } else {
+        navbar.classList.remove('bg-white/90', 'backdrop-blur-md', 'shadow-sm', 'border-b', 'border-gray-100');
+      }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  </script>
+
+</body>
+</html>
